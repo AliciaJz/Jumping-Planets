@@ -1,0 +1,27 @@
+body {
+  font-family: "Bangers", cursive;
+  font-size: 2em;
+  width: 900px;
+  /* text-align: center; */
+  color: #920d60;
+}
+
+h1{
+    display: inline-block;
+}
+p{
+    display: inline-block;
+    
+}
+/* canvas {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* #image{
+    width: 100px;
+    height: auto;
+    position:absolute;
+} */
