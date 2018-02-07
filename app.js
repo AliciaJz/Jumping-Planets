@@ -6,7 +6,7 @@ var images = {
   bg: "images/background.png",
   ufo: "images/UFOCostume.png",
   planets: "images/drawn-planets-transparent-pixel-18SM.png",
-  start: "",
+  start: "images/cursor-2-1-r-512.png",
   onePlayer: "",
   twoPlayers: "",
   level: "",
@@ -41,6 +41,96 @@ function Board() {
   };
 }
 
+function Play() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 70;
+    this.height = 70;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
+  function OnePlayer() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 100;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
+  function TwoPlayers() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 100;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
+  function Normal() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 100;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
+  function Medium() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 100;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
+  function High() {
+    this.x = 300;
+    this.y = 300;
+    this.width = 100;
+    this.height = 100;
+    this.img = new Image();
+    this.img.src = images.start;
+    this.img.onload = function() {
+      this.draw();
+    }.bind(this);
+    this.draw = function() {
+      ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+    };
+  }
+
 function Ufo() {
   this.x = 100;
   this.y = 400;
@@ -73,6 +163,7 @@ function Planet() {
 
 function firstScreen() {
   board = new Board();
+  start = new Play();
 }
 
 function playersScreen() {
@@ -103,11 +194,18 @@ function stopGame() {
   ctx.fillText("GAME OVER", 200, 100);
 }
 
+function newGame() {
+    board = new Board();
+    
+  }
+
 function drawPlanets() {
   planets.forEach(function(planet) {
     planet.draw();
   });
 }
+
+
 
 addEventListener("mousemove", function(e) {
   ufo.x = e.clientX - 60;
