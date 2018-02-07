@@ -9,9 +9,9 @@ var images = {
   bg: "images/background.png",
   ufo: "images/UFOCostume.png",
   planets: "images/drawn-planets-transparent-pixel-18SM.png",
-  start: "images/cursor-2-1-r-512.png",
-  onePlayer: "images/cursor-2-1-r-512.png",
-  twoPlayers: "images/cursor-2-1-r-512.png",
+  start: "images/",
+  onePlayer: "images/",
+  twoPlayers: "images/",
   level: "",
   normal: "",
   med: "",
@@ -19,33 +19,46 @@ var images = {
   ready: "",
   three: "",
   two: "",
-  one: ""
+  one: "",
+  go: ""
 };
 
+function generatePlanets(){
+  var p;
+  //cambiar 3 por la cantidad de planetas segun va avanzando
+  while(myGame.planets.length < 3){
+     p = new Planet();
+    myGame.planets.forEach(function(planet){
+      if(p.y !== planet.y){
+        myGame.planets.push(p);
+      }else {
+        p = new Planet();
+      }
+    });
+  }
+}
 
 function startGame() {
   frames = 0;
   myGame = new Game();
   console.log(myGame)
-  myGame.planets.push(new Planet(100,100));
-  myGame.planets.push(new Planet(300,100));
+  generatePlanets();
   interval = setInterval(updateGame, 1000 / 60);
 }
 
 function updateGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   myGame.board.draw();
-  myGame.player1.draw();
-
   if (myGame.planets.length >0) {
       myGame.planets[0].draw()
       myGame.planets[1].draw()
+      myGame.planets[2].draw()
   }
-  //drawPlanets();
+  myGame.player1.draw();
 }
 
 function stopGame() {
-  clearInterval(interval);
+  //clearInterval(interval);
   ctx.fillText("GAME OVER", 200, 100);
 }
 
