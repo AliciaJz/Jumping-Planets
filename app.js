@@ -85,7 +85,7 @@ function nextLevel(){
   frames = 0;
   myGame = new Game();
   generatePlanets();
-  // myGame.audio.play();
+  myGame.audio.play();
   interval = setInterval(updateGame, 1000 / 60);
 }
 
