@@ -8,7 +8,7 @@ var foley;
 var button;
 
 var images = {
-  name: "images/name.png",
+  name: "images/JP.png",
   bg: "images/background.png",
   ufo: "images/UFOCostume.png",
   planets: "images/planet.png",
@@ -46,11 +46,7 @@ function startGame() {
   frames = 0; 
   myGame = new Game();
   console.log(myGame);
-  // theme = new Sound("03_Spaceship_Out_of_Control.mp3");
-  // theme.play();
-  // start = new Button;
   generatePlanets();
-  // name = new Button;
   interval = setInterval(updateGame, 1000 / 60);
 }
 
@@ -82,8 +78,10 @@ function drawPlanets() {
 }
 
 addEventListener("click", function(e){
+  if (myGame.planets.arrX = )
     console.log(e);
-    
+    e.clientX = ;
+    e.clientY = ;
 });
 
 addEventListener("mousemove", function(e) {
