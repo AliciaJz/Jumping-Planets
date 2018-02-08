@@ -6,6 +6,7 @@ function Planet(posX, posY, i) {
     this.height = 80;
     this.img = new Image();
     this.img.src = images.planets;
+    this.number;
     this.img.onload = function() {
       this.draw();
     }.bind(this);
@@ -14,8 +15,10 @@ function Planet(posX, posY, i) {
       ctx.font = "29pt Bangers";
       ctx.fillStyle = "#920d60";
     };
+    
     this.drawText = function (){
-      ctx.fillText(i+1, this.posX +30, this.posY +50)
+      ctx.fillText(i+1, this.posX +30, this.posY +50);
+      this.number = i+1;
     }
   }
 

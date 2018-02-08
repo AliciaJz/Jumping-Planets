@@ -12,7 +12,24 @@ h1{
 }
 p{
     display: inline-block;
-    
+}
+
+canvas{
+    position: relative;
+}
+
+button{
+    font-family: "Bangers", cursive;
+    position: absolute;
+    display: block;
+    left: 400px;
+    top: 270px;
+    width: 130px;
+    height: 50px;
+    font-size: 1.2em;
+    color: #920d60;
+    background-color: #e5c7e2;
+    border-radius: 15px;
 }
 /* canvas {
   margin: 0 auto;
