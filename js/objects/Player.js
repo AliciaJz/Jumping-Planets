@@ -6,6 +6,7 @@ function Player() {
     this.score=0;
     this.img = new Image();
     this.img.src = images.ufo;
+    this.audio = new Audio("sounds/zapsplat_science_fiction_ufo_pass_fast_cartoon_like_001.mp3");
     this.img.onload = function() {
       this.draw();
     }.bind(this);

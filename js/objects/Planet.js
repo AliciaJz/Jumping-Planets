@@ -1,4 +1,4 @@
-function Planet(posX, posY, arrPos) {
+function Planet(posX, posY, i) {
     this.posX = posX;
     this.posY = posY;
     this.arrPos = i;
@@ -13,6 +13,10 @@ function Planet(posX, posY, arrPos) {
       ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
       ctx.font = "29pt Bangers";
       ctx.fillStyle = "#920d60";
-      ctx.fillText(arrPos+1, this.posX +30, this.posY +50)
     };
+    this.drawText = function (){
+      ctx.fillText(i+1, this.posX +30, this.posY +50)
+    }
   }
+
+  

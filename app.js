@@ -33,7 +33,7 @@ var arrY = [45, 130, 215, 300, 385, 470];
 var pos = [];
 function generatePlanets() {
   var p;
-  for (i=0; i<4; i++){
+  for (i=0; i<6; i++){
     var x = Math.floor(Math.random() * arrX.length);
     var y = Math.floor(Math.random() * arrY.length);
     myGame.planets.push(new Planet(arrX[x],arrY[y], i));
@@ -58,11 +58,16 @@ function updateGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   myGame.board.draw();
   if (myGame.planets.length > 0) {
-    myGame.planets[0].draw();
-    myGame.planets[1].draw();
-    myGame.planets[2].draw();
+    for (j=0; j<myGame.planets.length; j++){
+      myGame.planets[j].draw();
+      if(frames < 90){
+        myGame.planets[j].drawText();
+      }
+    }
   }
   myGame.player1.draw();
+frames++;
+console.log(frames);
 }
 
 function stopGame() {
@@ -75,6 +80,11 @@ function drawPlanets() {
     planet.draw();
   });
 }
+
+addEventListener("click", function(e){
+    console.log(e);
+    
+});
 
 addEventListener("mousemove", function(e) {
   myGame.player1.x = e.clientX - 60;
