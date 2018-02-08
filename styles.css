@@ -20,13 +20,41 @@ canvas{
     position: relative;
 }
 
-button{
+#start{
     font-family: "Bangers", cursive;
     position: absolute;
     display: block;
     left: 1100px;
-    top: 270px;
+    top: 190px;
     width: 130px;
+    height: 50px;
+    font-size: 1.2em;
+    color: #920d60;
+    background-color: #e5c7e2;
+    border-radius: 15px;
+}
+
+#unJugador{
+    font-family: "Bangers", cursive;
+    position: absolute;
+    display: block;
+    left: 1100px;
+    top: 170px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.2em;
+    color: #920d60;
+    background-color: #e5c7e2;
+    border-radius: 15px;
+}
+
+#dosJugadores{
+    font-family: "Bangers", cursive;
+    position: absolute;
+    display: block;
+    left: 1100px;
+    top: 300px;
+    width: 150px;
     height: 50px;
     font-size: 1.2em;
     color: #920d60;

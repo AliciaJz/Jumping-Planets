@@ -3,9 +3,6 @@ var ctx = canvas.getContext("2d");
 var interval;
 var frames = 0;
 var myGame;
-var theme;
-var foley;
-var button;
 
 var images = {
   bg: "images/background.png",
@@ -26,20 +23,14 @@ var images = {
 
 var arrX = [25, 110, 195, 280, 365, 450, 535, 620, 705, 790];
 var arrY = [45, 130, 215, 300, 385, 470];
-var numeroPlanetas = [1, 2, 3, 4, 5, 6];
 
-// document.getElementById("start").onclick = function () {
-//   myGame.draw.draw();
-//   startGame();
-// }
+window.onload = function(){
+  myGame.audio.play();
 
-function startScreen() {
-  myGame.draw.draw();
 }
-
 function generatePlanets() {
-  var p;
-  for (i = 0; i < 3; i++) {
+
+  for (i = 0; i < 6; i++) {
     var x = Math.floor(Math.random() * arrX.length);
     var y = Math.floor(Math.random() * arrY.length);
     myGame.planets.push(new Planet(arrX[x], arrY[y], i));
@@ -53,7 +44,6 @@ function startGame() {
   myGame = new Game();
   console.log(myGame);
   generatePlanets();
-  // myGame.audio.play();
   interval = setInterval(updateGame, 1000 / 60);
   if(myGame.player1){
     nextLevel();
@@ -81,24 +71,27 @@ function updateGame() {
   frames++;
 }
 
-function nextLevel(){
-  frames = 0;
-  myGame = new Game();
-  generatePlanets();
-  myGame.audio.play();
-  interval = setInterval(updateGame, 1000 / 60);
-}
+// function nextLevel(){
+//   frames = 0;
+//   myGame = new Game();
+//   generatePlanets();
+//   myGame.audio.play();
+//   interval = setInterval(updateGame, 1000 / 60);
+// }
 
 function stopGame() {
   clearInterval(interval);
-  ctx.fillText("GAME OVER", 200, 100);
+  // ctx.font="300px";
+  myGame.audio.pause();
+  myGame.player1.audio.pause();
+  ctx.fillText("GAME OVER", 300, 300);
 }
 
 addEventListener("click", function(e) {
   console.log(e);
   for (let z = 0; z < myGame.planets.length; z++) {
     if (myGame.player1.checkClickPlanet(myGame.planets[z])) {
-      console.log("Planeta #", myGame.planets[z].number);
+      console.log("Planeta #", myGame.planets[z].number+1);
       myGame.sequence.push(myGame.planets[z].number);
 
       for (var t=0; t<myGame.sequence.length;t++){
@@ -116,6 +109,7 @@ addEventListener("click", function(e) {
 addEventListener("mousemove", function(e) {
   myGame.player1.x = e.clientX - 60;
   myGame.player1.y = e.clientY - 50;
+  myGame.player1.audio.play();
 });
 
 startGame();
