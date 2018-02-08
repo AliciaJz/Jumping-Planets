@@ -8,11 +8,9 @@ var foley;
 var button;
 
 var images = {
-  name: "images/JP.png",
   bg: "images/background.png",
   ufo: "images/UFOCostume.png",
-  planets: "images/planet.png",
-  start: "images/empty_button.png"
+  planets: "images/planet.png"
   // onePlayer: "images/",
   // twoPlayers: "images/",
   // level: "images/",
@@ -28,20 +26,20 @@ var images = {
 
 var arrX = [25, 110, 195, 280, 365, 450, 535, 620, 705, 790];
 var arrY = [45, 130, 215, 300, 385, 470];
-var pos = [];
+var numeroPlanetas = [1, 2, 3, 4, 5, 6];
 
-
-function startScreen(){
-
-}
 // document.getElementById("start").onclick = function () {
 //   myGame.draw.draw();
 //   startGame();
 // }
 
+function startScreen() {
+  myGame.draw.draw();
+}
+
 function generatePlanets() {
   var p;
-  for (i = 0; i < 6; i++) {
+  for (i = 0; i < 3; i++) {
     var x = Math.floor(Math.random() * arrX.length);
     var y = Math.floor(Math.random() * arrY.length);
     myGame.planets.push(new Planet(arrX[x], arrY[y], i));
@@ -55,7 +53,13 @@ function startGame() {
   myGame = new Game();
   console.log(myGame);
   generatePlanets();
+  // myGame.audio.play();
   interval = setInterval(updateGame, 1000 / 60);
+  if(myGame.player1){
+    nextLevel();
+  } else{
+    stopGame();
+  }
 }
 
 function updateGame() {
@@ -64,6 +68,10 @@ function updateGame() {
   if (myGame.planets.length > 0) {
     for (j = 0; j < myGame.planets.length; j++) {
       myGame.planets[j].draw();
+      console.log(myGame.sequence)
+      for (r=0; r<myGame.sequence.length;r++){
+        myGame.planets[myGame.sequence[r]].drawText();
+      }
       if (frames < 90) {
         myGame.planets[j].drawText();
       }
@@ -73,22 +81,34 @@ function updateGame() {
   frames++;
 }
 
+function nextLevel(){
+  frames = 0;
+  myGame = new Game();
+  generatePlanets();
+  // myGame.audio.play();
+  interval = setInterval(updateGame, 1000 / 60);
+}
+
 function stopGame() {
   clearInterval(interval);
   ctx.fillText("GAME OVER", 200, 100);
 }
 
-function drawPlanets() {
-  planets.forEach(function(planet) {
-    planet.draw();
-  });
-}
-
 addEventListener("click", function(e) {
   console.log(e);
   for (let z = 0; z < myGame.planets.length; z++) {
-    if(myGame.player1.checkClickPlanet(myGame.planets[z])){
-      console.log("Simon", myGame.planets[z].number);
+    if (myGame.player1.checkClickPlanet(myGame.planets[z])) {
+      console.log("Planeta #", myGame.planets[z].number);
+      myGame.sequence.push(myGame.planets[z].number);
+
+      for (var t=0; t<myGame.sequence.length;t++){
+        if ((t)!=myGame.sequence[t]){
+          stopGame();
+          break;
+        }
+      }
+      myGame.planets[z].drawText();
+
     }
   }
 });
@@ -99,5 +119,3 @@ addEventListener("mousemove", function(e) {
 });
 
 startGame();
-
-

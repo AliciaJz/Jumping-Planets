@@ -6,7 +6,9 @@ function Player() {
   this.score = 0;
   this.img = new Image();
   this.img.src = images.ufo;
-  // this.audio = new Audio("sounds/zapsplat_science_fiction_ufo_pass_fast_cartoon_like_001.mp3");
+  this.audio = new Audio(
+    "sounds/zapsplat_science_fiction_ufo_pass_fast_cartoon_like_001.mp3"
+  );
   this.img.onload = function() {
     this.draw();
   }.bind(this);
@@ -17,10 +19,10 @@ function Player() {
 
 Player.prototype.checkClickPlanet = function(planet) {
   return (
-    this.x < planet.posX + planet.width/2 &&
-    this.x + this.width/2 > planet.posX &&
-    this.y < planet.posY + planet.height/2 &&
-    this.y + this.height/2 > planet.posY
+    this.x < planet.posX + planet.width / 2 &&
+    this.x + this.width / 2 > planet.posX &&
+    this.y < planet.posY + planet.height / 2 &&
+    this.y + this.height / 2 > planet.posY
   );
 
   //   if ((planet.posX < (this.x + (this.width/2)) < planet.posX + planet.width) &&
