@@ -56,7 +56,6 @@ function updateGame() {
   if (myGame.planets.length > 0) {
     for (j = 0; j < myGame.planets.length; j++) {
       myGame.planets[j].draw();
-      trueSequence();
       if (frames < 90) {
         myGame.planets[j].drawText();
       }
