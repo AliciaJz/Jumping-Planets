@@ -47,11 +47,6 @@ function startGame() {
   console.log(myGame);
   generatePlanets();
   interval = setInterval(updateGame, 1000 / 60);
-  // if(myGame.player1){
-  //   nextLevel();
-  // } else{
-  //   stopGame();
-  // }
 }
 
 function updateGame() {
@@ -71,14 +66,6 @@ function updateGame() {
   myGame.player1.draw();
   frames++;
 }
-
-// function nextLevel(){
-//   frames = 0;
-//   myGame = new Game();
-//   generatePlanets();
-//   myGame.audio.play();
-//   interval = setInterval(updateGame, 1000 / 60);
-// }
 
 function stopGame() {
   clearInterval(interval);
@@ -120,5 +107,3 @@ addEventListener("mousemove", function(e) {
   myGame.player1.y = e.clientY - 50;
   myGame.player1.audio.play();
 });
-
-// startGame();
