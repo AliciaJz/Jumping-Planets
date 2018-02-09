@@ -12,11 +12,11 @@ function Planet(posX, posY, i) {
   }.bind(this);
   this.draw = function() {
     ctx.drawImage(this.img, this.posX, this.posY, this.width, this.height);
-    ctx.font = "29pt Bangers";
+    ctx.font = "29pt Rammetto One";
     ctx.fillStyle = "#920d60";
   };
   this.drawText = function() {
-    ctx.fillText(i+1, this.posX + 30, this.posY + 50);
+    ctx.fillText(i+1, this.posX + 23, this.posY + 50);
     this.number = i;
   };
 }

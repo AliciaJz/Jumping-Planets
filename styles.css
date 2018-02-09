@@ -1,19 +1,28 @@
 body {
-  font-family: "Bangers", cursive;
-  font-size: 2em;
+  font-family: 'Rammetto One', cursive;
+  /* font-family: "Bangers", cursive; */
+  font-size: 1em;
   width: 100%;
   /* text-align: center; */
   color: #920d60;
   background-color:#130625;
+  position: relative;
 }
  
 h1{
     margin: 0;
-    display: inline-block;
+    position: absolute;
+    top: 30px;
+    left: 910px;
+    font-size: 3em;
+    text-align: center;
 }
 
 p{
-    display: inline-block;
+    position: absolute;
+    font-size: 1.7em;
+    top: 470px;
+    left: 1110px;
 }
 
 canvas{
@@ -21,7 +30,8 @@ canvas{
 }
 
 #start{
-    font-family: "Bangers", cursive;
+    font-family: 'Rammetto One', cursive;
+    /* font-family: "Bangers", cursive; */
     position: absolute;
     display: block;
     left: 1100px;
@@ -35,11 +45,12 @@ canvas{
 }
 
 #unJugador{
-    font-family: "Bangers", cursive;
+    font-family: 'Rammetto One', cursive;
+    /* font-family: "Bangers", cursive; */
     position: absolute;
     display: block;
     left: 1100px;
-    top: 170px;
+    top: 220px;
     width: 150px;
     height: 50px;
     font-size: 1.2em;
@@ -49,11 +60,12 @@ canvas{
 }
 
 #dosJugadores{
-    font-family: "Bangers", cursive;
+    font-family: 'Rammetto One', cursive;
+    /* font-family: "Bangers", cursive; */
     position: absolute;
     display: block;
     left: 1100px;
-    top: 300px;
+    top: 320px;
     width: 150px;
     height: 50px;
     font-size: 1.2em;
