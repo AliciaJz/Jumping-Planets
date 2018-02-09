@@ -3,7 +3,7 @@ var ctx = canvas.getContext("2d");
 var interval;
 var frames = 0;
 var myGame;
-var level = 7;
+var level = 3;
 var counter = 0;
 
 var images = {
@@ -38,6 +38,7 @@ function generatePlanets() {
     arrX.splice(x, 1);
     arrY.slice(y, 1);
   }
+  console.log(myGame.planets);
 }
 
 function startGame() {
@@ -101,13 +102,17 @@ addEventListener("click", function(e) {
       myGame.planets[z].drawText();
     }
   }
-  console.log("he acabado")
+  console.log("he acabado");
   if (myGame.planets.length == counter) {
     console.log("yaaaay");
     clearInterval(interval);
+    level++;
+    counter = 0;
+    arrX = [25, 110, 195, 280, 365, 450, 535, 620, 705, 790]
+    arrY = [45, 130, 215, 300, 385, 470];
+    startGame();
   }
   counter++;
-
 });
 
 addEventListener("mousemove", function(e) {
