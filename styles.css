@@ -8,6 +8,7 @@ body {
   background-color:#130625;
   position: relative;
 }
+
  
 h1{
     margin: 0;
@@ -18,11 +19,30 @@ h1{
     text-align: center;
 }
 
+h3{
+    position: absolute;
+    font-size: 2em;
+    top: 50px;
+    left: 110px;
+    width: 50%;
+    text-align: center;
+}
+
 p{
     position: absolute;
     font-size: 1.7em;
+    top: 130px;
+    left: 110px;
+    width: 50%;
+    text-align: center;
+}
+
+#miNombre{
+    position: absolute;
+    font-size: 1.7em;
     top: 470px;
-    left: 1110px;
+    left: 750px;
+    width: 50%;
 }
 
 canvas{

@@ -69,7 +69,7 @@ function updateGame() {
 
 function stopGame() {
   clearInterval(interval);
-  myGame.audio.pause();
+  // myGame.audio.pause();
   myGame.player1.audio.pause();
   ctx.fillText("GAME OVER", 300, 300);
 }
